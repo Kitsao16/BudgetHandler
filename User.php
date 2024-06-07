@@ -68,7 +68,7 @@ class User {
         }
 
         if (!$this->is_unique_id($id_number)) {
-            $errors[] = "ID number is already in use.";
+            $errors[] = "ID number  already in use.";
         }
 
         return $errors;

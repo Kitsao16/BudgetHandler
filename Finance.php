@@ -1,20 +1,27 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = ""; // Use your MySQL password if set
-$dbname = "client_accounts";
+require_once 'Database.php';
+require_once 'User.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+use BudgetHandler\Database;
+
+// Create a Database object
+$db = new Database();
+$conn = $db->connect();
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
+
+
+
+
 
 // Fetch user's name from the database
 if (isset($_SESSION['user_id'])) {
