@@ -7,7 +7,7 @@ use mysqli_sql_exception;
 class Database {
     private string $servername = 'localhost';
     private string $username = 'root';
-    private string $password = ''; //use own password if set
+    private string $password = ''; //use own password
     private string $dbname = 'client_accounts';
 
     public function connect() {
