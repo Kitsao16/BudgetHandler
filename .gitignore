@@ -1,0 +1,47 @@
+# Ignore sensitive configuration files
+.env
+config.php
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore compiled files
+/vendor/
+node_modules/
+public/js/*.min.js
+public/css/*.min.css
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore PHPStorm files
+/.idea/*
+/*.iml
+
+# Ignore Composer and NPM directories
+/vendor/
+/node_modules/
+
+# Ignore build directories
+/build/
+/dist/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.swp
+*.bak
+*.orig
+
+# Ignore uploaded files
+/uploads/
+
