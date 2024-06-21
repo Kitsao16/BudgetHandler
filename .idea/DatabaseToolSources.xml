@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DatabaseToolSources">
     <data-source name="client_accounts" uuid="5f530480-b5a2-4afa-be02-208b33e124fd" type="MYSQL">
-      <base-info connect-type="DB_DEFAULT" product="MySQL" version="8.0.36-0ubuntu0.22.04.1" major-version="8" minor-version="0" jdbc-name="MySQL Connector/J" jdbc-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" jdbc-major-version="8" jdbc-minor-version="2" />
+      <base-info connect-type="DB_DEFAULT" product="MySQL" version="8.0.37-0ubuntu0.22.04.3" major-version="8" minor-version="0" jdbc-name="MySQL Connector/J" jdbc-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" jdbc-major-version="8" jdbc-minor-version="2" />
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
