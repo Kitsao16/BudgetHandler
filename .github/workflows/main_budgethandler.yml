@@ -67,15 +67,15 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'BudgetHandler'
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           slot-name: 'production'
           package: .
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_49eecf54fe6b46be9dd2bfd71ff27744 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D7BB74C7F3B948D497060730F1838FD5 }}
 
       - name: Notify deployment success
         if: success()
         run: echo "Deployment to Azure Web App BudgetHandler successful."
-        
+
       - name: Notify deployment failure
         if: failure()
         run: echo "Deployment to Azure Web App BudgetHandler failed."
