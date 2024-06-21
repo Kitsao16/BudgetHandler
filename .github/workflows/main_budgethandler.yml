@@ -78,4 +78,4 @@ jobs:
 
       - name: Notify deployment failure
         if: failure()
-        run: echo "Deployment to Azure Web App BudgetHandler failed."
+        run: echo "Deployment  Azure Web App BudgetHandler failed."
