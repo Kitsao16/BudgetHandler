@@ -20,10 +20,10 @@ class Database {
         }
 
         // Retrieve configuration from environment variables
-        $this->servername = getenv('DB_HOST') ?: 'budgethandler-sqlserver.database.windows.net';
-        $this->username = getenv('DB_USER') ?: 'sqladmin';
-        $this->password = getenv('DB_PASS') ?: 'Tsaotsao21!';
-        $this->dbname = getenv('DB_NAME') ?: 'client_accounts';
+        $this->servername = $_ENV['DB_HOST'] ?? '';
+        $this->username = $_ENV['DB_USER'] ?? '';
+        $this->password = $_ENV['DB_PASS'] ?? '';
+        $this->dbname = $_ENV['DB_NAME'] ?? '';
     }
 
     public function connect(): mysqli {
