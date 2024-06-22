@@ -36,7 +36,8 @@ jobs:
       - name: Prepare deployment artifact
         run: |
           mkdir deployment
-          cp -r * deployment
+          shopt -s extglob
+          cp -r !(deployment) deployment
           cd deployment
           zip -r ../release.zip .
         shell: bash
@@ -53,7 +54,7 @@ jobs:
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
@@ -62,6 +63,13 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+
+      - name: Set up environment variables
+        run: |
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> $GITHUB_ENV
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> $GITHUB_ENV
+          echo "DB_USER=${{ secrets.DB_USER }}" >> $GITHUB_ENV
+          echo "DB_PASS=${{ secrets.DB_PASS }}" >> $GITHUB_ENV
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
@@ -78,4 +86,4 @@ jobs:
 
       - name: Notify deployment failure
         if: failure()
-        run: echo "Deployment  Azure Web App BudgetHandler failed."
+        run: echo "Deployment to Azure Web App BudgetHandler failed."

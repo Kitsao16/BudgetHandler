@@ -13,15 +13,17 @@ class Database {
     private string $dbname;
 
     public function __construct() {
-        // Load environment variables
-        $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
-        $dotenv->load();
+        // Load environment variables from .env file if it exists
+        if (file_exists(__DIR__ . '/../../.env')) {
+            $dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
+            $dotenv->load();
+        }
 
         // Retrieve configuration from environment variables
-        $this->servername = $_ENV['DB_SERVERNAME'] ?? 'budgethandler-sqlserver.database.windows.net';
-        $this->username = $_ENV['DB_USERNAME'] ?? 'sqladmin';
-        $this->password = $_ENV['DB_PASSWORD'] ?? 'Tsaotsao21!';
-        $this->dbname = $_ENV['DB_NAME'] ?? 'client_accounts';
+        $this->servername = getenv('DB_HOST') ?: 'budgethandler-sqlserver.database.windows.net';
+        $this->username = getenv('DB_USER') ?: 'sqladmin';
+        $this->password = getenv('DB_PASS') ?: 'Tsaotsao21!';
+        $this->dbname = getenv('DB_NAME') ?: 'client_accounts';
     }
 
     public function connect(): mysqli {
